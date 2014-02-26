@@ -5,7 +5,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
 from mezzanine.core.views import direct_to_template
-
+from blog_api.api import PostResource
 
 admin.autodiscover()
 
@@ -18,6 +18,9 @@ urlpatterns = i18n_patterns("",
     # admin interface, which would be marginally more secure.
     ("^admin/", include(admin.site.urls)),
 )
+
+
+postresource = PostResource()
 
 urlpatterns += patterns('',
 
@@ -86,6 +89,9 @@ urlpatterns += patterns('',
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
+    url(r'^oauth2/', include('provider.oauth2.urls', namespace='oauth2')),
+    #url(r'^api/', include('blog_api.urls')),
+    url(r'^api/', include(postresource.urls)),
 
 )
 

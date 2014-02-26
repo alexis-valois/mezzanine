@@ -1,5 +1,4 @@
 from __future__ import absolute_import, unicode_literals
-#test
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -248,6 +247,11 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
+    "provider",
+    "provider.oauth2",
+    "south",
+    "tastypie",
+    "blog_api",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )
